@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #box{
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        margin: 30px;
+        text-align: center;
+      
+    }
+    #box img{
+        height: 200px;
+     
+       padding-left: 50px;
+    }
+    #box div{
+   border: 1px solid black;
+   padding: 10px;
+   margin: 40px;
+   box-shadow: 10px 5px 20px black;
+   border-radius: 30px;
+   transition: all 0.5s;
+    }
+    #box div:hover{
+        background-color:#C7C8CC;
+        transform: scale(1.1);
+        transition: all 0.5s;
+       
+    }
+    #box h1{
+        font-weight: 900;
+        transition: all 0.5s;
+    }
+    #box div:hover h1{
+        color:#31304D;
+        font-size: 50px;
+    }
+   
+</style>
+<body>
+<h2 style="text-align: center; font-size: 50px; text-transform: uppercase; margin: 2px; margin-top: 10px;">product detail</h2>
+<div class="line" style="text-align: center; padding-top: 2px;">-----------------------------------------------------</div>
+    
+<div id="box"></div>
+
+ <script src="./intro.js"></script>   
+</body>
+
+
+
+</html>
