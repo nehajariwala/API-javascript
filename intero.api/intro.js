@@ -56,3 +56,21 @@ const uimaker = (data) => {
 fetch("https://dummyjson.com/products")
 .then(res=>res.json())
 .then((data=>uimaker(data.products)))
+
+
+const sorting=(val)=>{
+    if(val=="htl"){
+        products.sort((a,b)=>b.price-a.price)
+       uimaker(products)
+       console.log("sorting")
+    }
+}
+const sortingg=(val)=>{
+    if(val=="lth"){
+        products.sort((a,b)=>a.price-b.price)
+       uimaker(products)
+    }
+
+}
+document.getElementById("htl").addEventListener("click",sorting)
+document.getElementById("lth").addEventListener("click",sortingg)
