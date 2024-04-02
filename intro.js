@@ -1,23 +1,23 @@
 
-
+let products = []
 
 const uimaker = (data) => {
 
     document.getElementById("box").innerHTML = "";
 
-    data.map((ele,i) => {
+    data.map((ele, i) => {
 
 
         let title = document.createElement("h1")
         title.innerHTML = ele.title
 
-        
+
         let description = document.createElement("p")
         description.innerHTML = ele.description
 
         let price = document.createElement("p")
         price.innerHTML = ele.price
-        
+
         let discountPercentage = document.createElement("p")
         discountPercentage.innerHTML = ele.discountPercentage
 
@@ -37,16 +37,16 @@ const uimaker = (data) => {
         let images = document.createElement("img")
         images.src = ele.images[0];
 
-      
- 
-     
+
+
+
         let div = document.createElement("div")
-        div.append(images, title,description, price,discountPercentage,rating,stock,brand, category)
-         div.setAttribute("class", "data");
-       document.getElementById("box").append(div)
+        div.append(images, title, description, price, discountPercentage, rating, stock, brand, category)
+        div.setAttribute("class", "data");
+        document.getElementById("box").append(div)
 
     })
-    
+
 }
 
 
@@ -54,23 +54,33 @@ const uimaker = (data) => {
 
 
 fetch("https://dummyjson.com/products")
-.then(res=>res.json())
-.then((data=>uimaker(data.products)))
+    .then(res => res.json())
+    .then((data => {
+        uimaker(data.products)
 
 
-const sorting=(val)=>{
-    if(val=="htl"){
-        products.sort((a,b)=>b.price-a.price)
-       uimaker(products)
-       console.log("sorting")
+        products = data.products
+
     }
-}
-const sortingg=(val)=>{
-    if(val=="lth"){
-        products.sort((a,b)=>a.price-b.price)
-       uimaker(products)
+    )
+
+
+    )
+
+
+
+const sorting = (val) => {
+    if (val == "htl") {
+        products.sort((a, b) => b.price - a.price)
+        uimaker(products)
+        console.log("sorting")
+    }
+
+    if (val == "lth") {
+        products.sort((a, b) => a.price - b.price)
+        uimaker(products)
     }
 
 }
-document.getElementById("htl").addEventListener("click",sorting)
-document.getElementById("lth").addEventListener("click",sortingg)
+document.getElementById("htl").addEventListener("click", ()=>sorting("htl"))
+document.getElementById("lth").addEventListener("click", ()=>sorting("lth"))
