@@ -57,15 +57,8 @@ fetch("https://dummyjson.com/products")
     .then(res => res.json())
     .then((data => {
         uimaker(data.products)
-
-
         products = data.products
-
-    }
-    )
-
-
-    )
+ }))
 
 
 
@@ -82,5 +75,14 @@ const sorting = (val) => {
     }
 
 }
+
+const filter=(val)=>{
+    let mobile=products.filter((ele)=>ele.brand==val)
+    uimaker(mobile);
+}
+
 document.getElementById("htl").addEventListener("click", ()=>sorting("htl"))
 document.getElementById("lth").addEventListener("click", ()=>sorting("lth"))
+document.getElementById("Apple").addEventListener("click", ()=>filter("Apple"))
+document.getElementById("Samsung").addEventListener("click", ()=>filter("Samsung"))
+document.getElementById("OPPO").addEventListener("click", ()=>filter("OPPO"))
